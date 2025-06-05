@@ -43,3 +43,5 @@ test("verify login functionality with invalid username and invalid password", as
 //    await expect(page).toHaveURL("https://www.saucedemo.com/v1/inventory.html")
    await expect(page.locator('button[class="error-button"]')).toBeVisible()
 })
+
+// await page.close()
