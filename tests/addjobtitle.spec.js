@@ -3,7 +3,7 @@ import logindata from "../testdata/logindata.json"
 import data from "../testdata/jobtitledata.json"
 test("verify login functionality and adding job title ",async({page})=>{
 
-    await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+    await page.goto("/web/index.php/auth/login")
     await page.locator('input[placeholder="Username"]').fill(logindata.username)
     await page.locator('input[name="password"]').fill(logindata.password)
     await page.locator('button[type="submit"]').click()
@@ -18,5 +18,5 @@ test("verify login functionality and adding job title ",async({page})=>{
    await page.locator('textarea[placeholder="Add note"]').fill(data['add note'])
    await page.locator('button[type="submit"]').click()
    await expect(page.locator('h6[class="oxd-text oxd-text--h6 orangehrm-main-title"]')).toBeVisible()
-   await page.close()
+   
 })
