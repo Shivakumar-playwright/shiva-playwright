@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import logindata from "../testdata/logindata.json"
 import employeedata from "../testdata/addemployeedata.json"
 
-test("verify login functionality and adding employee data",async({page})=>{
+test("verify login functionality and adding employee data", async ({ page }) => {
     await page.goto("/web/index.php/auth/login")
     await page.locator('input[placeholder="Username"]').fill(logindata.username)
     await page.locator('input[name="password"]').fill(logindata.password)
