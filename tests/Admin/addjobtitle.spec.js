@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
-import logindata from "../../testdata/logindata.json"
+
 import data from "../../testdata/jobtitledata.json"
 test("verify login functionality and adding job title ", async ({ page }) => {
 
     await page.goto("/web/index.php/auth/login")
-    await page.locator('input[placeholder="Username"]').fill(logindata.username)
-    await page.locator('input[name="password"]').fill(logindata.password)
+    await page.locator('input[placeholder="Username"]').fill(process.env.ORG_USERNAME)
+    await page.locator('input[name="password"]').fill(process.env.ORG_PASSWORD)
     await page.locator('button[type="submit"]').click()
     await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index")
     await page.locator('(//span[@class="oxd-text oxd-text--span oxd-main-menu-item--name"])[1]').click()
