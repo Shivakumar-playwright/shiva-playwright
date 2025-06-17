@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import employeedata from "../testdata/addemployeedata.json"
+import employeedata from "../../testdata/addemployeedata.json"
 
 test("verify login functionality and adding employee data", async ({ page }) => {
     await page.goto("/web/index.php/auth/login")
