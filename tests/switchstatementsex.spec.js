@@ -11,9 +11,9 @@ test('based on browser Name run different script', async ({ page, browserName })
         case 'webkit':
             await page.goto('https://www.duckduckgo.com');
             break;
-            default :{
-                console.log('Browser not supported');
-            }
+        default: {
+            console.log('Browser not supported');
+        }
 
     }
 })

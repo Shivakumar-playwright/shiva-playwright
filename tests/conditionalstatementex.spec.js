@@ -6,13 +6,13 @@ test('checking disappearing elements', async ({ page }) => {
     const gallery = await page.locator('a[href="/gallery/"]');
     const portfolio = await page.locator('a[href="/portfolio/"]');
 
-    if ( gallery.isVisible()) {
-         gallery.click();
+    if (gallery.isVisible()) {
+        gallery.click();
         console.log("gallery is clicked");
         await expect(page).toHaveURL('https://the-internet.herokuapp.com/gallery/');
         await page.close()
-    } else if ( portfolio.isVisible()) {
-         portfolio.click();
+    } else if (portfolio.isVisible()) {
+        portfolio.click();
         console.log("portfolio is clicked");
         await expect(page).toHaveURL('https://the-internet.herokuapp.com/portfolio/');
     }

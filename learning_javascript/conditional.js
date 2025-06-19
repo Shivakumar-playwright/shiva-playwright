@@ -1,6 +1,6 @@
 //if statements
-let age=23;
-if (age>=18) {
+let age = 23;
+if (age >= 18) {
     console.log("he is an adult")
 }
 
