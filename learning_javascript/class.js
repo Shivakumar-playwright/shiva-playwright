@@ -14,10 +14,10 @@ class calculator {
 
 }
 
-const cal1=new calculator()
-cal1.add(2,7)
-cal1.mul(3,3)
-cal1.sub(100,99)
+const cal1 = new calculator()
+cal1.add(2, 7)
+cal1.mul(3, 3)
+cal1.sub(100, 99)
 console.log(cal1.x)
 
 // constructor:
