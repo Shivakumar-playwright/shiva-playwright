@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('checking disappearing elements', async ({ page }) => {
+test('checking disappearing elements',{tag:"@smoke"} ,async ({ page }) => {
     await page.goto('https://the-internet.herokuapp.com/disappearing_elements');
 
     const gallery = await page.locator('a[href="/gallery/"]');
