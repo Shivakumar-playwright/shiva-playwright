@@ -5,28 +5,12 @@ test.beforeEach(async ({ browser }) => {
     await page.goto('https://rahulshettyacademy.com/AutomationPractice/')
 })
 test("check box example", async () => {
+    await page.locator("#checkBoxOption1").check()
+    await page.waitForTimeout(5000)
+    await page.locator("#checkBoxOption1").uncheck()
 
-    const ischecked = await page.locator('#checkBoxOption1').isChecked()
-    console.log(ischecked)
-    if (!ischecked) {
-        await page.locator('#checkBoxOption1').check()
-    }
-    await expect(page.locator('#checkBoxOption1')).toBeChecked()
-    await page.waitForTimeout(3000)
-    await page.locator('#checkBoxOption1').uncheck()
-    await expect(page.locator('#checkBoxOption1')).not.toBeChecked()
-    await page.waitForTimeout(3000)
 })
 
-test("check box example-2", async () => {
-
-    const checkboxes = ["#checkBoxOption1", "#checkBoxOption2", "#checkBoxOption3"]
-
-    for (let checkbox of checkboxes) {
-        await page.locator(checkbox).check()
-        await page.waitForTimeout(3000)
-    }
-})
 
 test("check box example-3", async () => {
 
@@ -38,6 +22,13 @@ test("check box example-3", async () => {
             await checkbox.check()
         }
     }
+})
+
+
+test("link example",async({page})=>{
+    await page.goto("https://trello.com/")
+    await page.locator('a[class="Buttonsstyles__Button-sc-1jwidxo-0 kTwZBr"]').click()
+      await page.locator('#username-uid1').fill("shiva@gmail.com")
 })
 
 

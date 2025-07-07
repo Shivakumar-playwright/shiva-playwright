@@ -41,6 +41,7 @@ test.describe('Automation - Working with Alerts', () => {
         page.on('dialog', async dialog => {
             expect(dialog.type()).toBe('prompt');
             await dialog.accept('shiva');
+            await page.waitForTimeout(5000)
         });
 
     });
