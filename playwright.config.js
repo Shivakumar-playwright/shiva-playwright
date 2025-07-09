@@ -53,14 +53,14 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'] },
     // },
 
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-        storageState: ".auth/user.json",
-      },
-      dependencies: ["setup"],
-    },
+    // {
+    //   name: 'firefox',
+    //   use: {
+    //     ...devices['Desktop Firefox'],
+    //     storageState: ".auth/user.json",
+    //   },
+    //   dependencies: ["setup"],
+    // },
 
     // {
     //   name: 'webkit',
@@ -86,10 +86,10 @@ export default defineConfig({
       name: 'Google Chrome',
       use: {
         ...devices['Desktop Chrome'], channel: 'chrome',
-        storageState: ".auth/user.json",
+        // storageState: ".auth/user.json",
 
       },
-      dependencies: ["setup"],
+      // dependencies: ["setup"],
     },
   ],
 
