@@ -6,7 +6,7 @@ let page;
 let login;
 let jobtitle;
 
-test.describe("verify job titles page", async () => {
+test.describe("verify job titles page",{tag:"@sanity"}, async () => {
 
     test.beforeEach(async ({ browser }) => {
         page = await browser.newPage()

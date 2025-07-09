@@ -23,7 +23,7 @@ test.beforeEach(async ({ browser }) => {
     await workshift.navigatetoworkshifts()
 })
 
-test.describe("verifying workshifts", async () => {
+test.describe("verifying workshifts",{tag:"@sanity"}, async () => {
     test("add workshifts", async () => {
 
         await workshift.addshift("TestShift")

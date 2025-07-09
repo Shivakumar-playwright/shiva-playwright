@@ -24,7 +24,7 @@ test.beforeEach(async ({ browser }) => {
 
 })
 
-test.describe("verifying paygrades", async () => {
+test.describe("verifying paygrades",{tag:"@sanity"}, async () => {
     test("add paygrades", async () => {
         await paygrade.addpaygrade("shhdk")
         await paygrade.verifysuccessmsg()

@@ -25,7 +25,7 @@ test.beforeEach(async ({ browser }) => {
 
 })
 
-test.describe("verifying jobcatagoriess", async () => {
+test.describe("verifying jobcatagoriess",{tag:"@sanity"}, async () => {
     test("add jobcatagoriess", async () => {
 
         await jobcatagoriess.addjobcatagories("testjobcatagories")
