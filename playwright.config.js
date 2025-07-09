@@ -13,7 +13,7 @@ require('dotenv').config()
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-   timeout:60000,
+  timeout: 60000,
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: false,
@@ -24,13 +24,13 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : 2,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html'],['dot'],['list']],
+  reporter: [['html'], ['dot'], ['list']],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    headless:false,
-    baseURL:"https://opensource-demo.orangehrmlive.com/",
-    screenshot:"only-on-failure",
-    video:"retain-on-failure",
+    headless: false,
+    baseURL: "https://opensource-demo.orangehrmlive.com/",
+    screenshot: "only-on-failure",
+    video: "retain-on-failure",
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
@@ -41,14 +41,26 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: "setup",
+      use: {
+        ...devices['Desktop Chrome'],
+        channel: "chrome"
+      },
+      testMatch: ".auth/user.json"
     },
-
     // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
+    //   name: 'chromium',
+    //   use: { ...devices['Desktop Chrome'] },
     // },
+
+    {
+      name: 'firefox',
+      use: {
+        ...devices['Desktop Firefox'],
+        storageState: ".auth/user.json",
+      },
+      dependencies: ["setup"],
+    },
 
     // {
     //   name: 'webkit',
@@ -70,10 +82,15 @@ export default defineConfig({
     //   name: 'Microsoft Edge',
     //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
     // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
+    {
+      name: 'Google Chrome',
+      use: {
+        ...devices['Desktop Chrome'], channel: 'chrome',
+        storageState: ".auth/user.json",
+
+      },
+      dependencies: ["setup"],
+    },
   ],
 
   /* Run your local dev server before starting the tests */
